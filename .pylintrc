@@ -1,0 +1,22 @@
+[MASTER]
+disable=
+    C0301,  # Line too long (we accept longer lines for readability)
+    C0103,  # Invalid variable name (we use descriptive names)
+    R0903,  # Too few public methods (Flask routes are simple)
+    R0913,  # Too many arguments (not applicable to our code)
+    C0114,  # Missing module docstring (we have module docstrings)
+    C0115,  # Missing class docstring (we have class docstrings)
+    C0116,  # Missing function docstring (we have function docstrings)
+
+[FORMAT]
+max-line-length=120
+
+[BASIC]
+good-names=i,j,k,ex,Run,_
+
+[DESIGN]
+max-args=10
+max-locals=15
+max-returns=10
+max-branches=15
+max-statements=60

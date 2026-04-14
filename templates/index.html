@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Emotion Detector</h1>
+            <p class="subtitle">Analyze the emotional content of your text using AI</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <form action="/emotionDetector" method="POST">
+                    <label for="textToAnalyze">Enter your text to analyze:</label>
+                    <textarea
+                        id="textToAnalyze"
+                        name="textToAnalyze"
+                        placeholder="Type or paste your text here..."
+                        rows="6"
+                        required
+                    >{{ request.form.get('textToAnalyze', '') }}</textarea>
+                    <button type="submit">Analyze Emotions</button>
+                </form>
+            </section>
+
+            {% if error_text %}
+            <section class="error-section">
+                <div class="error-message">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <p>{{ error_text }}</p>
+                </div>
+            </section>
+            {% endif %}
+
+            {% if dominant_emotion %}
+            <section class="results-section">
+                <div class="dominant-emotion">
+                    <h2>Dominant Emotion</h2>
+                    <div class="emotion-badge {{ dominant_emotion }}">
+                        {{ dominant_emotion|title }}
+                    </div>
+                </div>
+
+                <div class="emotion-scores">
+                    <h3>Emotion Scores</h3>
+                    <div class="emotion-grid">
+                        <div class="emotion-card anger">
+                            <div class="emotion-label">Anger</div>
+                            <div class="emotion-bar">
+                                <div class="bar-fill" style="width: {{ (anger * 100)|round(1) }}%"></div>
+                            </div>
+                            <div class="emotion-value">{{ (anger * 100)|round(1) }}%</div>
+                        </div>
+
+                        <div class="emotion-card disgust">
+                            <div class="emotion-label">Disgust</div>
+                            <div class="emotion-bar">
+                                <div class="bar-fill" style="width: {{ (disgust * 100)|round(1) }}%"></div>
+                            </div>
+                            <div class="emotion-value">{{ (disgust * 100)|round(1) }}%</div>
+                        </div>
+
+                        <div class="emotion-card fear">
+                            <div class="emotion-label">Fear</div>
+                            <div class="emotion-bar">
+                                <div class="bar-fill" style="width: {{ (fear * 100)|round(1) }}%"></div>
+                            </div>
+                            <div class="emotion-value">{{ (fear * 100)|round(1) }}%</div>
+                        </div>
+
+                        <div class="emotion-card joy">
+                            <div class="emotion-label">Joy</div>
+                            <div class="emotion-bar">
+                                <div class="bar-fill" style="width: {{ (joy * 100)|round(1) }}%"></div>
+                            </div>
+                            <div class="emotion-value">{{ (joy * 100)|round(1) }}%</div>
+                        </div>
+
+                        <div class="emotion-card sadness">
+                            <div class="emotion-label">Sadness</div>
+                            <div class="emotion-bar">
+                                <div class="bar-fill" style="width: {{ (sadness * 100)|round(1) }}%"></div>
+                            </div>
+                            <div class="emotion-value">{{ (sadness * 100)|round(1) }}%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Powered by IBM Watson Natural Language Understanding</p>
+        </footer>
+    </div>
+</body>
+</html>

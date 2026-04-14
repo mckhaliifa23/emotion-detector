@@ -1,0 +1,268 @@
+/* Emotion Detector Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Main Content */
+main {
+    padding: 30px;
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 30px;
+}
+
+.input-section label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.input-section textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.input-section textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.input-section button {
+    margin-top: 15px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.input-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.input-section button:active {
+    transform: translateY(0);
+}
+
+/* Error Section */
+.error-section {
+    margin-bottom: 30px;
+}
+
+.error-message {
+    background: #fee;
+    border: 2px solid #fcc;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #c33;
+}
+
+.error-message svg {
+    flex-shrink: 0;
+}
+
+.error-message p {
+    font-weight: 500;
+}
+
+/* Results Section */
+.results-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.dominant-emotion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dominant-emotion h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.emotion-badge {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-transform: capitalize;
+}
+
+.emotion-badge.anger {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.emotion-badge.disgust {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.emotion-badge.fear {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+
+.emotion-badge.joy {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
+.emotion-badge.sadness {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+/* Emotion Scores */
+.emotion-scores h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+}
+
+.emotion-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.emotion-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-label {
+    font-weight: 600;
+    min-width: 80px;
+    text-transform: capitalize;
+}
+
+.emotion-bar {
+    flex: 1;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.emotion-card.anger .bar-fill {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+}
+
+.emotion-card.disgust .bar-fill {
+    background: linear-gradient(90deg, #11998e, #38ef7d);
+}
+
+.emotion-card.fear .bar-fill {
+    background: linear-gradient(90deg, #8e2de2, #4a00e0);
+}
+
+.emotion-card.joy .bar-fill {
+    background: linear-gradient(90deg, #f093fb, #f5576c);
+}
+
+.emotion-card.sadness .bar-fill {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+}
+
+.emotion-value {
+    font-weight: 700;
+    min-width: 60px;
+    text-align: right;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+    background: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .emotion-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .emotion-label {
+        min-width: auto;
+    }
+
+    .emotion-bar {
+        width: 100%;
+    }
+
+    .emotion-value {
+        align-self: flex-end;
+    }
+}
