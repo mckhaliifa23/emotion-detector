@@ -1,4 +1,4 @@
-# Emotion Detector
+# Final Project: Emotion Detector
 
 A web application that uses IBM Watson's Natural Language Understanding API to analyze text for emotional content. The application detects five emotions (anger, disgust, fear, joy, and sadness) and identifies the dominant emotion in the provided text.
 
